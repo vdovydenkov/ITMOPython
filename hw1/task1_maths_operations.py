@@ -1,18 +1,18 @@
-# Действия над x и y
 
-import sys
+# ДЗ1. Задание 1.
+# Действия над числами x и y
 
-# Подключаем свой модуль. В нем функция get_integer()
-from  hw1_module import get_integer
+# Подключаем свой модуль
+from  hw1_module import get_integer, goodbye
 
-x = get_integer()
+x = get_integer("Введите первое число: ")
 if x == None:
-    # Что-то пошлое не так.
-    sys.exit(1)
-y = get_integer()
+    # Что-то пошло не так со вводом
+    goodbye(1)
+y = get_integer("Введите второе число: ")
 if y == None:
-    # Что-то пошлое не так.
-    sys.exit(1)
+    # Опять что-то  не так со вводом
+    goodbye(1)
 
 print("-" * 30)
 # Сумма
@@ -37,4 +37,4 @@ print(f"Возведение в степень: {x} в степени {y} = ", x
 print("-" * 30)
 
 # Пауза перед завершением.
-input("\nНажмите Enter для завершения.")
+goodbye(0)

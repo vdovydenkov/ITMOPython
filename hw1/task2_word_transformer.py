@@ -1,6 +1,8 @@
+# ДЗ1. Задание 2.
 # Трансформер   слова.
 
-import sys
+# Импортируем из своего модуля
+from hw1_module import goodbye
 
 user_word = None
 
@@ -16,7 +18,7 @@ while attempts > 0:
     attempts -= 1    
 if user_word == None:
     print("Что-то пошло не так.")    
-    sys.exit(1)
+    goodbye(1)
 
 print("-" * 30)
 
@@ -28,4 +30,4 @@ print(f"Инвертируем слово: {user_word[::-1]}")
 print("-" * 30)
 
 # Пауза перед завершением.
-input("Нажмите Enter для завершения программы.")
+goodbye(0)

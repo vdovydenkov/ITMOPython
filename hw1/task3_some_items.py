@@ -1,25 +1,23 @@
+# ДЗ1. Задание 3.
 # Выборка элементов списка
 
-import sys
-
 # Подключаем собственный модуль. Функция get_integer
-from hw1_module import get_integer
+from hw1_module import get_float, goodbye
 
-print("Введите последовательно любые целые числа. Для завершения, введите -1")
+print("Введите последовательно любые  числа. Для завершения, введите -1")
 
-user_integer = get_integer()
+user_num = get_float("")
 # Если первый же ввод дал ошибку
-if user_integer == None:
-    print("Превышено количество попыток, или произошла иная ошибка ввода.")
-    sys.exit(1)
+if user_num == None:
+    goodbye(1)
 
 # Создаем пустой список
 user_list = []
 
 # Пока ввод не закончится минус единицей или ошибкой
-while (user_integer != -1) and (user_integer != None):
-    user_list.append(user_integer)
-    user_integer = get_integer()    
+while (user_num != -1) and (user_num != None):
+    user_list.append(user_num)
+    user_num = get_float("")
 
 print("Ввод закончен. Список чисел сформирован.")
 print("-" * 30)
@@ -51,4 +49,4 @@ else:
 print("-" * 30)
 
 # Пауза перез завершением.
-input("Нажмите Enter для завершения программы.")
+goodbye(0)
