@@ -14,7 +14,7 @@ PROMPT = "Введите имя файла:"
 # Регулярные выражения для выборки
 regexps = [
            # Шаблон для e-mail
-           r"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}",
+           r"[a-zA-Zа-яА-Я0-9._%+-]+@[a-zA-Zа-яА-Я0-9.-]+\.[a-zA-Zа-яА-Я]{2,}",
            # Шаблон для телефона в формате +7...
            r"\+7\d{10}",
            # Шаблон для телефона в формате 8...
@@ -28,11 +28,11 @@ user_filename = input(PROMPT)
 # Добавляем путь к имени файла
 user_filename = os.path.join(os.path.dirname(os.path.abspath(__file__)), user_filename)
 
-# Начальная строка для вывода
+# Строка перед выводом
 print("-" * 30)
 
 try: # Пытаемся открыть на чтение
-    with open(user_filename, "r") as file:
+    with open(user_filename, "r", encoding="utf-8") as file:
         # Считываем файл
         source_text = [line for line in file]
 except FileNotFoundError:
@@ -46,7 +46,7 @@ try: # Пытаемся открыть на запись
     # Добавляем путь к имени выходного файла
     filename = os.path.join(os.path.dirname(os.path.abspath(__file__)), OUTPUT_FILENAME)
     print("Создаем файл ", filename)
-    with open(filename, "w") as file:
+    with open(filename, "w", encoding="utf-8") as file:
         print("Выбранные данные:")
         # Проходим по строкам исходного текста
         for line in source_text:
