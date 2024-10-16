@@ -31,7 +31,7 @@ def merge_files(files_list, need_save=True):
     # Takes a filename from list
     for file in files_list:
         try:
-            with open(file, "r") as f:
+            with open(file, "r", encoding="utf-8") as f:
                 # Add a new text
                 result += f.read()
         except FileNotFoundError:
@@ -45,7 +45,7 @@ def merge_files(files_list, need_save=True):
     else: # The result is not empty
         # Write to file
         try:
-            with open(RESULT_FILENAME, "w") as f:
+            with open(RESULT_FILENAME, "w", encoding="utf-8") as f:
                 f.write(result)
         except:
             return WRITE_ERROR

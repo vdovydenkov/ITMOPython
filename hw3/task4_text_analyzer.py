@@ -15,7 +15,7 @@ def text_analysis(filename):
 
     result_dict = {}
     try:
-        with open(filename, "r") as text:
+        with open(filename, "r", encoding="utf-8") as text:
             lines = [line for line in text]
     except FileNotFoundError:
         result_dict["error"] = f"Ошибка: файл с именем {filename} не существует!"
